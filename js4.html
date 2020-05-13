@@ -1,0 +1,71 @@
+/* 예제4. 버튼 클릭 */
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function btnClick(event) {
+                alert(event.target.value + "클릭!");
+            }
+        </script>
+         <style>
+            table {
+              width: 25%;
+              height: 30%;
+              color: slateblue;
+            }
+            table, td {
+              border: 1px solid brown;
+              text-align: center;
+            }
+            .names{
+                color: lime;
+                text-decoration: underline
+            }
+          </style>
+    </head>
+    <body>
+        <form>
+            <input type="button" value="Button1" onclick="btnClick(event)">
+        </form>
+        <table>
+            <tr> 
+                <td class="names">
+                    조은희
+                    <form>
+                        <input type="button" value="연락처" onclick="btnClick(event)">
+                    </form>
+                </td>
+                <td class="names">
+                    육동훈
+                    <form>
+                        <input type="button" value="연락처" onclick="btnClick(event)">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td class="names">
+                    이윤주
+                    <form>
+                        <input type="button" value="연락처" onclick="btnClick(event)">
+                    </form>
+                </td>
+                <td class="names">
+                    어준
+                    <form>
+                        <input type="button" value="연락처" onclick="btnClick(event)">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td class="names">
+                    천희원
+                    <form>
+                        <input type="button" value="연락처" onclick="btnClick(event)">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
