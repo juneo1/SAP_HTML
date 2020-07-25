@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Function</title>
+  </head>
+  <body>
+    <!--  -->
+    <div >
+        <span>이름 : </span>
+        <input type="text" id="name"/>
+    </div>
+    <div >
+        <span>비밀번호 : </span>
+        <input type="password" id="password"/>
+    </div>
+    <button onclick="onSave2()">저장</button>
+      <!-- onclick ; click 할때, "onSave2()"함수를 실행해라 라는 뜼 -->
+
+    <script type="text/javascript">
+    /*   function
+                1) 형식.
+                  Set>>   function 이름(  *** parameter(매개변수)) {
+                        로직   ( -> 이 안에, 조건문, 반복문 등등 모두 올 수 있다. ) 실행
+                          return 값;     ==> function 을 실행한 애한테 값을 던져줌!!
+                          }
+                  Get>>   함수이름(); ==> 함수를 불러오는 곳
+                        ** return 키워드로 return 값을 만든 경우
+                              ; var result = 함수이름(); 으로 gkatn
+                        함수이름(2,"a");  ==> 함수생성시 ()안에 생성한 매개변수 생성에 값을 할당!!한다.
+                2) 파라미터 ;
+                    ㄱ. 0~ N로 무한대로 설정 가능
+                    ㄴ. 매개변수도 변수! 이므로, 선언시, var을 기본적으로 써줘야 하는데,
+                        위치 자체가() 변수를 담는 곳이므로 var를 쓰지 않아도 변수임을 알 수 있다.!!
+                        ==> 따라서, var를 쓰지 않기로 약속함!! (단, 변수명 선언하는 방식과는 같아야함.)
+
+                          ex)  return값이 있다.
+                          function parseInt(param1){
+                          문자열 -> 숫자
+                          return 숫자;
+                        }
+                              parseInt("3");
+
+                        ex2) return 값이 없다!!
+                        function write(param1){
+                        parm1을 화면에 찍어주도록 로직;
+
+                      }
+                            document.write("문자열");
+    */
+  /*    1. function 생성
+          1_1)  return값이 없는 함수.
+        파라미터 : 콤마로 구분        */
+       // function sayHi(name, message){
+       //   alert("저는" + name + "입니다."+message);
+       //        /* alert : 경고창 / 브라우저가 뭔가 알려줄때 창이 뜸.
+       //                  문자열을 화면에 보여주는 기능 존재.*/
+
+       // }
+       // var sReturnValue = sayHi("YJ", "반갑습니다.");
+       // alert(sReturnValue);    //  return 값이 없으면 undefined라고 뜸!
+
+     // 1_2)  return 값이 있는 함수
+     // 파라미터 : 콤마로 구분        */
+    // function sayHi(name, message){
+    //   alert("저는" + name + "입니다."+message);
+    //        /* alert : 경고창 / 브라우저가 뭔가 알려줄때 창이 뜸.
+    //                  문자열을 화면에 보여주는 기능 존재.*/
+    //  // return 3;
+    //  return name + "님";     // ** 실질적으로 parameter를 받아서 처리하는 경우가 많다!
+    // }
+    // var sReturnValue = sayHi("YJ", "반갑습니다.");
+    // alert(sReturnValue);    //  return 값이 없으면 undefined라고 뜸!
+
+
+      // 파라미터 안_  숫자형.
+      //  function sum(num1, num2) {
+      //    return num1 + num2;
+      // }
+      //
+      // document.write(sum(2,3));
+
+      document.write("<br/>");
+      document.write("<br/>");
+      document.write("<br/>");
+
+
+      // 파라미터 안_ object.
+      // function onSave(onSaveParam) {
+      //   if(!onSaveParam.seq){    // 빈문자열, null, undefined 이면~~ 이 로직을 탄다.
+      //     return;    // return값이 아무것도 없으면 function 이 여기서 멈춘다.
+      //                 // 그래서       document.write("seq가"+onSaveParam.seq+"인 데이터가 저장되었습니다.");
+      //                 // 의 구문을 타지 않는다.!!
+      //   }
+      //   document.write("seq가"+onSaveParam.seq+"인 데이터가 저장되었습니다.");
+      // }
+      // // document.write(onSave({seq:1}));   //{}; 객체 리터럴!!
+      // document.write(onSave({}));   //{}; 객체 리터럴!!
+      //
+
+
+      /* 위의   <div >
+            <span>이름 : </span>
+            <input type="text" id="name"/>
+        </div>
+        <div >
+            <span>비밀번호 : </span>
+            <input type="password" id="password"/>
+        </div>
+        <button onclick="onSave2()">저장</button>
+
+        부분과 연결....*/
+
+        /* mission ! ;
+        이름을 입력하지 않은 경우 " 이름을 입력해 주십시오" alert으로 알려주기.
+         비밀번호를 입력하지 않은 경우 " 비밀번호를 입력해 주십시오" alert으로 알려주기.
+         이름과 비밀번호를 다 입력한 경우 alert으로 이름(누구누구)님 반갑습니다.*/
+        function onSave2() {     //단순히 입력한 값을 가져온다.
+          var sName = document.querySelector("#name").value;
+          var sPassword = document.querySelector("#password").value;
+          if (sName===""){
+            alert("이름을 입력해 주십시오.");
+          }else if(sPassword===""){
+            alert("비밀번호를 입력해 주십시오.");
+          }else if(sName && sPassword){
+            alert(sName+"님 반갑습니다.");
+          };
+        }
+
+/*       순수 if문만 준 구문~!
+          if (sName===""){                  // *cf_ if 조건 안에 (sName.trim() === "")
+                                                  ; .trim() ; 문자열의 양 옆에(문자열 사이는 안됨) 빈 공간을 없애줌.
+                                                    sName = "           " => sName.trim()이 "abc" 로 변환
+                                                                  ===> "" === "" 로 됨
+            alert("이름을 입력해 주십시오.");
+            return;                         ==> return 을 쓰지 않으면, 이름 /비번 모두 빈 값일때
+          }
+          if(sPassword===""){
+            alert("비밀번호를 입력해 주십시오.");
+            return;
+          }
+          if(sName && sPassword){
+            alert(sName+"님 반갑습니다.");
+            return;
+          };
+*/
+
+        sName===""   를 보통, !sName 로 한다.
+        ==> 이유는 sName이 실제 어떤 데이터타입인지 알지 못하는 경우가 많고,
+            NOT 연산자를 쓰면 훨씬 간결하다.
+            목적이 ( **이 아닐때!!)를 만드는 것 뿐이므로, 결국 false값 만드는 것이 목적이기 때문에!!!!
+
+        /* onSave2()   ==> 나는 get으로 이것을 넣어줘야 구현하는 줄 알았으나,
+                            위의 태그로 구현해 줬으므로 get으로 호출할 필요가 없다.
+                            오히려, 이렇게 로직을 써주면, 실행했을때 바로 alert으로 "이름을 입력해주십시오."라고 뜸!!
+                            그런데, 태그를 타면 onclick attribute때문에  저장버튼을 클릭햇을 경우만 onSave2펑션이 뜸!!
+                            +) 현재 이 함수를 실행시키기 전에도 화면에 뿌려지는 기본 것들이 있따--> 위의 태그때문!*/
+        // document.write(onSave2());  ==> undefined 가 출력됨
+        //                                이유; onSave2() 함수에 return값을 주지 않았으므로
+        //                                      document.write()에 반환해주는 값이 없다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
